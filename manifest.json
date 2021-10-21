@@ -1,0 +1,22 @@
+{
+    "name": "Presente, professor!",
+    "version": "0.1",
+    "short_name": "PP",
+    "description": "Bot de presença, para o Meet",
+
+    "icons": {
+        "512": "img/icon.jpg"
+    },
+    "manifest_version": 2,
+
+    "web_accessible_resources": [
+        "css/*"
+    ],
+    "content_scripts": [{
+        "matches": ["*://meet.google.com/*"],
+        "js": ["js/jquery.min.js", "js/content_script.js"],
+        "css": ["css/custom.css"]
+    }],
+
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'; connect-src *;"
+}
