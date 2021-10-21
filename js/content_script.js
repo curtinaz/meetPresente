@@ -13,7 +13,7 @@
         '<div class="panel-heading minimize-icon">' +
         '<span id="minimize" class="panel-title">Presente, professor!</span></div>' +
 
-        '<div id="createGroupGui" style="padding: 12px;">' + '<div class="d-flex flex-bottom mb-5" id="voltarCreateGroup"><h2>👋 Opa, tudo certo?</h2></div><br>' +
+        '<div id="createGroupGui" style="padding: 12px;">' + '<div class="d-flex flex-bottom mb-5" id="voltarCreateGroup"><h2>👋 Opa, tudo certo?</h2></div><h4>É necessário que você envie uma mensagem no chat antes de iniciar o bot!</h4><br>' +
         '<label for="criar" class="mb-3">Qual a palavra de presença?</label><input type="text" id="palavraChave" style="box-sizing: border-box" placeholder="presente" class="form-control underform mb-4 elm bttn"></input>' + '<a id="criar" class="mb-4 bttn form-control btn-outline-warning elm" style="margin-right: 8px;">Fica de olha para mim, bot!</a></div>' +
 
         '</div></div>' +
@@ -50,10 +50,6 @@
 
         (async() => {
 
-            if (!document.querySelectorAll('.GDhqjd')) {
-                sendMessage("Olá");
-            }
-
             var palavraChave = document.querySelector("#palavraChave").value;
             var messagesQtd = document.querySelectorAll('.GDhqjd').length;
             var novaQtd = messagesQtd;
@@ -68,10 +64,8 @@
                 ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
                 ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
                 if (ultimaMensagem == keyword) {
-                    console.log('era')
-                        // return 'era';
+                    return 'era';
                 } else {
-                    // console.log('nao era')
                     messagesQtd = document.querySelectorAll('.GDhqjd').length;
                 }
             }
@@ -86,27 +80,6 @@
                 submit.removeAttribute('disabled')
                 submit.click()
             }
-
-            // function sendMessage(message) {
-
-
-
-
-            //     window.InputEvent = window.Event || window.InputEvent;
-
-            //     var event = new InputEvent('input', {
-            //         bubbles: true,
-            //     });
-
-            //     document.querySelectorAll('.BC4V9b')[0].click()
-
-            //     var textbox = document.querySelectorAll('.KHxj8b')[0];
-
-            //     textbox.innerText = message;
-            //     textbox.dispatchEvent(event);
-
-            //     document.querySelectorAll('.VfPpkd-Bz112c-LgbsSe')[1].click();
-            // }
 
             async function ping() {
                 await sleep(1000);
