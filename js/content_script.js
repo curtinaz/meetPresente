@@ -9,59 +9,29 @@
 
 (function() {
 
-    // function sendMessage(message) {
-    //     window.InputEvent = window.Event || window.InputEvent;
+    function sendMessage(message) {
+        window.InputEvent = window.Event || window.InputEvent;
 
-    //     var event = new InputEvent('input', {
-    //         bubbles: true
-    //     });
+        var event = new InputEvent('input', {
+            bubbles: true
+        });
 
-    //     document.querySelectorAll('.p3_M1')[0].click();
+        document.querySelectorAll('.KHxj8b')[0].click();
 
-    //     var textbox = document.querySelectorAll('._13NKt')[1];
+        var textbox = document.querySelectorAll('.KHxj8b')[0];
 
-    //     textbox.innerText = message;
-    //     textbox.dispatchEvent(event);
+        textbox.innerText = message;
+        textbox.dispatchEvent(event);
 
-    //     document.querySelector("button._4sWnG").click();
-    // }
-
-    // function groupName(name) {
-    //     window.InputEvent = window.Event || window.InputEvent;
-
-    //     var event = new InputEvent('input', {
-    //         bubbles: true
-    //     });
-
-    //     var groupbox = document.querySelectorAll('._13NKt')[0];
-
-    //     groupbox.innerText = nomeGrupo;
-    //     groupbox.dispatchEvent(event);
-    // }
-
-    // var NonStopMessenger = function() {
-    //         function n(n) {
-    //             window.InputEvent = window.Event || window.InputEvent
-    //             var t = (new Date, new InputEvent("input", { bubbles: !0 })),
-    //                 e = document.querySelector("div > div.input")
-    //             e.textContent = n, e.dispatchEvent(t), setTimeout(function() { document.querySelector(".icon.icon-send").click() }, 200)
-    //         }
-    //         var t = 0,
-    //             e = 0
-    //         this.send = function(o, i) {
-    //             function u() { n(o), t++, t < e && setTimeout(u, 300) }
-    //             t = 0, e = i, u()
-    //         }, this.stop = function() { e = t }
-    //     },
-    //     mes = new NonStopMessenger
+        document.querySelectorAll('.VfPpkd-Bz112c-LgbsSe')[1].click();
+    }
 
     var Assistant = $('<div id="web-assistant"class="panel panel-primary">' +
         '<div class="panel-heading minimize-icon">' +
-        '<span id="minimize" class="panel-title">Whatsapp +</span></div>' +
+        '<span id="minimize" class="panel-title">Presente, professor!</span></div>' +
 
-        '<div id="createGroupGui" style="padding: 12px;">' + '<div class="d-flex flex-bottom mb-5" id="voltarCreateGroup"><h2>👈 Criador de Grupos</h2></div><br>' +
-        '<div class="d-flex flex-bottom mb-5"><label for="groupqtd">Quantos grupos você deseja criar?</label><input type="number" id="groupqtd" value="1" Placeholder="1" class="elm bttn"></input></div>' +
-        '<label for="groupqtd" class="mb-3">Qual o nome destes grupos?</label><input type="text" id="groupTitle" Placeholder="Nome do grupo" class="form-control underform mb-4 elm bttn"></input>' + '<a id="criar" class="mb-4 bttn form-control btn-outline-warning elm" style="margin-right: 8px;">Criar</a></div>' +
+        '<div id="createGroupGui" style="padding: 12px;">' + '<div class="d-flex flex-bottom mb-5" id="voltarCreateGroup"><h2>👋 Opa, tudo certo?</h2></div><br>' +
+        '<label for="criar" class="mb-3">Qual a palavra de presença?</label><input type="text" id="palavraChave" style="box-sizing: border-box" placeholder="presente" class="form-control underform mb-4 elm bttn"></input>' + '<a id="criar" class="mb-4 bttn form-control btn-outline-warning elm" style="margin-right: 8px;">Fica de olha para mim, bot!</a></div>' +
 
         '</div></div>' +
         '<div style="margin-right: 12px; font-size: 28px;font-weight: 800;text-align: right;" id="opener"><h1 style="font-size: 48px;text-shadow: black 0px 0px 20px;color: #ffffff;/* margin-right: 0px; */">+</h1></div>');
@@ -73,6 +43,11 @@
 
     // OPENERS E CLOSERS
     $("#minimize", Assistant).click(function(e) {
+        $('#web-assistant').hide(50);
+        $('#opener').show(200);
+    });
+
+    $("#yDmH0d").click(function(e) {
         $('#web-assistant').hide(50);
         $('#opener').show(200);
     });
@@ -182,96 +157,99 @@
 
     // });
 
-    // const sleep = m => new Promise(r => setTimeout(r, m));
-    // var nomeGrupo = 'unnamed';
-    // var quantidade = 30;
+    const sleep = m => new Promise(r => setTimeout(r, m));
 
-    // $("#criar", Assistant).click(function(e) {
+    $("#criar", Assistant).click(function(e) {
 
-    //     (async() => {
+        (async() => {
 
-    //         quantos = document.querySelectorAll('#groupqtd')[0].value;
+            palavraChave = document.querySelector("#palavraChave").value;
+            messagesQtd = document.querySelectorAll('.GDhqjd').length;
 
-    //         for (var i = 1; i <= quantos; i++) {
+            async function ping() {
+                await sleep(1000);
 
-    //             nomeGrupo = '#' + i + ' ' + document.querySelectorAll('#groupTitle')[0].value;
-
-    //             // Abre o lugar para adicionar membros
-    //             document.querySelectorAll('._26lC3')[2].click()
-    //             document.querySelectorAll('._2oldI')[0].click()
-
-    //             await sleep(250)
-
-    //             // Seleciona o primeiro de cima
-    //             document.querySelectorAll('._3OvU8')[9].click()
-
-    //             // Clica em concluido
-    //             document.querySelectorAll('._165_h')[0].click()
-
-    //             await sleep(250)
-
-    //             // Abre os emojis
-    //             // document.querySelectorAll('._27Yui')[0].click();
-    //             // await sleep(100)
-    //             // document.querySelectorAll('.emojik')[0].click()
-
-    //             // Atribui nome
-    //             groupName(nomeGrupo);
-    //             // document.querySelectorAll('._13NKt')[0].innerText = nomeGrupo;
-    //             // document.querySelectorAll('._2Pq6r')[0].classList.add("_3zbxJ");
-    //             // document.querySelectorAll('._2vbn4')[0].style[0] = 'hidden';
-
-    //             await sleep(100);
-
-    //             // Clica para criar grupo
-    //             document.querySelectorAll('._165_h')[0].click()
-
-    //             await sleep(1000);
-
-    //             // Grupo criado.
-    //             document.querySelector("._24-Ff").click();
-    //             await sleep(200);
-    //             document.querySelector("._24-Ff").click();
-    //             await sleep(200);
-    //             document.querySelectorAll('._1YLup')[4].click();
-
-    //             // Editar dados do grupo
-    //             document.querySelectorAll('._1ER5I')[0].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.QzWWL')[1].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //             // Enviar mensagens
-    //             document.querySelectorAll('._1ER5I')[1].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.QzWWL')[1].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //             // Mensagens encaminhadas com frenquência
-    //             document.querySelectorAll('._1ER5I')[2].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.QzWWL')[1].click();
-    //             await sleep(200);
-    //             document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //             // Fecha o menu
-    //             document.querySelector('._18eKe').click();
-    //             await sleep(200);
-    //             document.querySelector('._18eKe').click();
-    //             await sleep(200);
-    //             console.log("Grupo pronto para lançamento");
-
-    //         }
-
-    //     })()
+            }
 
 
 
+            (document.querySelectorAll('.GDhqjd').length).addEventListener("change", verifica());
 
+            // sendMessage(palavraChave);
 
-    // })
+            // for (var i = 1; i <= quantos; i++) {
+
+            //     nomeGrupo = '#' + i + ' ' + document.querySelectorAll('#groupTitle')[0].value;
+
+            //     // Abre o lugar para adicionar membros
+            //     document.querySelectorAll('._26lC3')[2].click()
+            //     document.querySelectorAll('._2oldI')[0].click()
+
+            //     await sleep(250)
+
+            //     // Seleciona o primeiro de cima
+            //     document.querySelectorAll('._3OvU8')[9].click()
+
+            //     // Clica em concluido
+            //     document.querySelectorAll('._165_h')[0].click()
+
+            //     await sleep(250)
+
+            //     // Abre os emojis
+            //     // document.querySelectorAll('._27Yui')[0].click();
+            //     // await sleep(100)
+            //     // document.querySelectorAll('.emojik')[0].click()
+
+            //     // Atribui nome
+            //     groupName(nomeGrupo);
+            //     // document.querySelectorAll('._13NKt')[0].innerText = nomeGrupo;
+            //     // document.querySelectorAll('._2Pq6r')[0].classList.add("_3zbxJ");
+            //     // document.querySelectorAll('._2vbn4')[0].style[0] = 'hidden';
+
+            //     await sleep(100);
+
+            //     // Clica para criar grupo
+            //     document.querySelectorAll('._165_h')[0].click()
+
+            //     await sleep(1000);
+
+            //     // Grupo criado.
+            //     document.querySelector("._24-Ff").click();
+            //     await sleep(200);
+            //     document.querySelector("._24-Ff").click();
+            //     await sleep(200);
+            //     document.querySelectorAll('._1YLup')[4].click();
+
+            //     // Editar dados do grupo
+            //     document.querySelectorAll('._1ER5I')[0].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.QzWWL')[1].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.tvf2evcx')[1].click();
+
+            //     // Enviar mensagens
+            //     document.querySelectorAll('._1ER5I')[1].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.QzWWL')[1].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.tvf2evcx')[1].click();
+
+            //     // Mensagens encaminhadas com frenquência
+            //     document.querySelectorAll('._1ER5I')[2].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.QzWWL')[1].click();
+            //     await sleep(200);
+            //     document.querySelectorAll('.tvf2evcx')[1].click();
+
+            //     // Fecha o menu
+            //     document.querySelector('._18eKe').click();
+            //     await sleep(200);
+            //     document.querySelector('._18eKe').click();
+            //     await sleep(200);
+            //     console.log("O bot está à espreita");
+            // }
+        })()
+    })
 
     // $("#disparador", Assistant).click(function(e) {
 
