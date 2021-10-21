@@ -163,17 +163,53 @@
 
         (async() => {
 
-            palavraChave = document.querySelector("#palavraChave").value;
-            messagesQtd = document.querySelectorAll('.GDhqjd').length;
+            var palavraChave = document.querySelector("#palavraChave").value;
+            var messagesQtd = document.querySelectorAll('.GDhqjd').length;
+            var ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText;
+
+            console.log(palavraChave);
+            console.log(messagesQtd);
+
+            function verifica(keyword) {
+                ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
+                ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
+
+                if (ultimaMensagem == keyword) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
 
             async function ping() {
                 await sleep(1000);
-
+                if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
+                    console.log('quantidade mudou');
+                    if (verifica(palavraChave)) {
+                        sendMessage(palavraChave)
+                        return;
+                    }
+                }
+                pong()
             }
 
+            async function pong() {
+                await sleep(1000);
+                if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
+                    console.log('quantidade mudou');
+                    if (verifica(palavraChave)) {
+                        sendMessage(palavraChave)
+                        return;
+                    }
+                }
+                pong()
+            }
+
+            ping();
 
 
-            (document.querySelectorAll('.GDhqjd').length).addEventListener("change", verifica());
+
+            // (document.querySelectorAll('.GDhqjd').length).addEventListener("change", verifica());
 
             // sendMessage(palavraChave);
 
