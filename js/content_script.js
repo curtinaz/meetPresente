@@ -82,31 +82,6 @@
         $('#opener').hide(50);
     });
 
-    // OPENER E CLOSER - CREATE GROUP
-    $("#abrirCreateGroup").click(function(e) {
-        $('#contentGui').hide(50);
-        $('#createGroupGui').show(200);
-    });
-
-    $("#voltarCreateGroup").click(function(e) {
-        $('#createGroupGui').hide(50);
-        $('#contentGui').show(200);
-    })
-
-    //
-    $("#abrirEnvioEmMassa").click(function(e) {
-        $('#contentGui').hide(50);
-        $('#envioEmMassaGui').show(200);
-    });
-
-    $("#voltarEnvioEmMassa").click(function(e) {
-        $('#envioEmMassaGui').hide(50);
-        $('#contentGui').show(200);
-    })
-
-
-
-
     // // FUNÇÕES
     // $("#abrir", Assistant).click(function(e) {
     //     document.querySelector("._24-Ff").click();
