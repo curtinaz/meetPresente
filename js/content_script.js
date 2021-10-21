@@ -57,106 +57,6 @@
         $('#opener').hide(50);
     });
 
-    // // FUNÇÕES
-    // $("#abrir", Assistant).click(function(e) {
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelectorAll('._1YLup')[4].click();
-    //     document.querySelectorAll('._1ER5I')[1].click();
-    //     document.querySelectorAll('.QzWWL')[0].click();
-    //     document.querySelectorAll('.tvf2evcx')[1].click();
-    //     document.querySelector('._18eKe').click();
-    //     document.querySelector('._18eKe').click();
-    //     console.log("Grupo aberto");
-    // });
-
-    // $("#adiciona", Assistant).click(function(e) {
-    //     (async() => {
-    //         document.querySelector("._24-Ff").click();
-    //         document.querySelector("._24-Ff").click();
-    //         await sleep(200);
-    //         // document.querySelectorAll('._1YLup')[4].click();
-
-    //         // Adicionar membro
-    //         document.querySelectorAll('.zoWT4')[0].click();
-    //         await sleep(200);
-
-    //         // Seleciona o coringa
-    //         document.querySelectorAll('._2nY6U')[9].click();
-    //         await sleep(200);
-
-    //         // Dá pronto
-    //         document.querySelectorAll('._165_h._2HL9j')[0].click()
-    //         document.querySelectorAll('.p357zi0d')[1].click()
-    //         await sleep(200);
-
-    //         // // Editar Administradores
-    //         // document.querySelectorAll('._1YLup')[4].click();
-    //         // await sleep(200);
-    //         // document.querySelectorAll('._1ER5I')[3].click();
-    //         // await sleep(200);
-    //         // document.querySelectorAll('._2nY6U')[9].click();
-    //         // await sleep(200);
-    //         // // document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //         // // Dá pronto
-    //         // document.querySelectorAll('._165_h._2HL9j')[0].click()
-    //         // await sleep(200);
-
-    //         //Fecha o menu
-    //         document.querySelector('._18eKe').click();
-    //         await sleep(50);
-    //         document.querySelector('._18eKe').click();
-    //         console.log("Coringa adicionado no grupo como administrador");
-    //     })()
-    // });
-
-    // $("#enviar", Assistant).click(function(e) {
-    //     sendMessage("Oi");
-    // });
-
-    // $("#fechar", Assistant).click(function(e) {
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelectorAll('._1YLup')[4].click();
-    //     document.querySelectorAll('._1ER5I')[1].click();
-    //     document.querySelectorAll('.QzWWL')[1].click();
-    //     document.querySelectorAll('.tvf2evcx')[1].click();
-    //     document.querySelector('._18eKe').click();
-    //     document.querySelector('._18eKe').click();
-    //     console.log("Grupo fechado");
-    // });
-
-    // ///////////
-
-    // $("#mudar", Assistant).click(function(e) {
-
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelector("._24-Ff").click();
-    //     document.querySelectorAll('._1YLup')[4].click();
-
-    //     //Editar dados do grupo
-    //     document.querySelectorAll('._1ER5I')[0].click();
-    //     document.querySelectorAll('.QzWWL')[1].click();
-    //     document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //     // Enviar mensagens
-    //     document.querySelectorAll('._1ER5I')[1].click();
-    //     document.querySelectorAll('.QzWWL')[1].click();
-    //     document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //     // Mensagens encaminhadas com frenquência
-    //     document.querySelectorAll('._1ER5I')[2].click();
-    //     document.querySelectorAll('.QzWWL')[1].click();
-    //     document.querySelectorAll('.tvf2evcx')[1].click();
-
-    //     //Fecha o menu
-    //     document.querySelector('._18eKe').click();
-    //     document.querySelector('._18eKe').click();
-    //     console.log("Grupo pronto para lançamento");
-
-    // });
-
     const sleep = m => new Promise(r => setTimeout(r, m));
 
     $("#criar", Assistant).click(function(e) {
@@ -185,9 +85,11 @@
                 await sleep(1000);
                 if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
                     console.log('quantidade mudou');
-                    if (verifica(palavraChave)) {
+                    if (verifica(palavraChave) == true) {
                         sendMessage(palavraChave)
                         return;
+                    } else {
+                        messagesQtd = document.querySelectorAll('.GDhqjd').length;
                     }
                 }
                 pong()
@@ -197,9 +99,11 @@
                 await sleep(1000);
                 if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
                     console.log('quantidade mudou');
-                    if (verifica(palavraChave)) {
+                    if (verifica(palavraChave) == true) {
                         sendMessage(palavraChave)
                         return;
+                    } else {
+                        messagesQtd = document.querySelectorAll('.GDhqjd').length;
                     }
                 }
                 pong()
