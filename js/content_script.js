@@ -66,6 +66,8 @@
             var palavraChave = document.querySelector("#palavraChave").value;
             var messagesQtd = document.querySelectorAll('.GDhqjd').length;
             var ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText;
+            ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
+            ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
 
             console.log(palavraChave);
             console.log(messagesQtd);
@@ -73,11 +75,12 @@
             function verifica(keyword) {
                 ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
                 ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
-
                 if (ultimaMensagem == keyword) {
-                    return true;
+                    // return true;
+                    console.log('era')
                 } else {
-                    return false;
+                    // return false;
+                    console.log('nao era')
                 }
             }
 
