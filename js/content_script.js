@@ -9,23 +9,6 @@
 
 (function() {
 
-    function sendMessage(message) {
-        window.InputEvent = window.Event || window.InputEvent;
-
-        var event = new InputEvent('input', {
-            bubbles: true
-        });
-
-        document.querySelectorAll('.KHxj8b')[0].click();
-
-        var textbox = document.querySelectorAll('.KHxj8b')[0];
-
-        textbox.innerText = message;
-        textbox.dispatchEvent(event);
-
-        document.querySelectorAll('.VfPpkd-Bz112c-LgbsSe')[1].click();
-    }
-
     var Assistant = $('<div id="web-assistant"class="panel panel-primary">' +
         '<div class="panel-heading minimize-icon">' +
         '<span id="minimize" class="panel-title">Presente, professor!</span></div>' +
@@ -61,10 +44,19 @@
 
     $("#criar", Assistant).click(function(e) {
 
+        document.querySelector("#opener h1").style.color = "green";
+        $('#web-assistant').hide(50);
+        $('#opener').show(200);
+
         (async() => {
+
+            if (!document.querySelectorAll('.GDhqjd')) {
+                sendMessage("Olá");
+            }
 
             var palavraChave = document.querySelector("#palavraChave").value;
             var messagesQtd = document.querySelectorAll('.GDhqjd').length;
+            var novaQtd = messagesQtd;
             var ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText;
             ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
             ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
@@ -76,40 +68,62 @@
                 ultimaMensagem = document.querySelectorAll('.GDhqjd')[(document.querySelectorAll('.GDhqjd').length) - 1].innerText.split('\n');
                 ultimaMensagem = ultimaMensagem[(ultimaMensagem.length) - 1];
                 if (ultimaMensagem == keyword) {
-                    // return true;
                     console.log('era')
+                        // return 'era';
                 } else {
-                    // return false;
-                    console.log('nao era')
+                    // console.log('nao era')
+                    messagesQtd = document.querySelectorAll('.GDhqjd').length;
                 }
             }
 
+            let textarea = document.querySelector('textarea[name="chatTextInput"]')
+            let submit = document.querySelectorAll('.VfPpkd-Bz112c-LgbsSe')[1]
+
+            function sendMessage(text) {
+                textarea.click()
+                textarea.value = text
+                submit.removeAttribute('aria-disabled')
+                submit.removeAttribute('disabled')
+                submit.click()
+            }
+
+            // function sendMessage(message) {
+
+
+
+
+            //     window.InputEvent = window.Event || window.InputEvent;
+
+            //     var event = new InputEvent('input', {
+            //         bubbles: true,
+            //     });
+
+            //     document.querySelectorAll('.BC4V9b')[0].click()
+
+            //     var textbox = document.querySelectorAll('.KHxj8b')[0];
+
+            //     textbox.innerText = message;
+            //     textbox.dispatchEvent(event);
+
+            //     document.querySelectorAll('.VfPpkd-Bz112c-LgbsSe')[1].click();
+            // }
+
             async function ping() {
                 await sleep(1000);
-                if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
-                    console.log('quantidade mudou');
-                    if (verifica(palavraChave) == true) {
-                        sendMessage(palavraChave)
-                        return;
-                    } else {
-                        messagesQtd = document.querySelectorAll('.GDhqjd').length;
-                    }
+                if (verifica(palavraChave) == 'era') {
+                    sendMessage(palavraChave)
+                    return;
                 }
                 pong()
             }
 
             async function pong() {
                 await sleep(1000);
-                if (messagesQtd < document.querySelectorAll('.GDhqjd').length) {
-                    console.log('quantidade mudou');
-                    if (verifica(palavraChave) == true) {
-                        sendMessage(palavraChave)
-                        return;
-                    } else {
-                        messagesQtd = document.querySelectorAll('.GDhqjd').length;
-                    }
+                if (verifica(palavraChave) == 'era') {
+                    sendMessage(palavraChave)
+                    return;
                 }
-                pong()
+                ping()
             }
 
             ping();
